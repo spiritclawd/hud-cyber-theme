@@ -1,0 +1,101 @@
+name: hud-cyber
+label: HUD Cyber
+description: "Cyberpunk command center \u2014 deep navy, electric cyan, amber accents,\
+  \ Orbitron fonts, cockpit layout"
+palette:
+  background:
+    hex: '#050915'
+    alpha: 1.0
+  midground:
+    hex: '#a8d0ff'
+    alpha: 1.0
+  foreground:
+    hex: '#ffffff'
+    alpha: 0
+  warmGlow: rgba(249, 115, 22, 0.25)
+  noiseOpacity: 0.6
+typography:
+  fontSans: '"Orbitron", "Eurostile", "Bank Gothic", "Impact", system-ui, sans-serif'
+  fontMono: '"Share Tech Mono", "JetBrains Mono", ui-monospace, monospace'
+  fontDisplay: '"Orbitron", "Eurostile", "Impact", sans-serif'
+  fontUrl: https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Share+Tech+Mono&display=swap
+  baseSize: 14px
+  lineHeight: '1.5'
+  letterSpacing: 0.04em
+layout:
+  radius: 0px
+  density: compact
+layoutVariant: cockpit
+assets:
+  bg: 'linear-gradient(140deg, #050915 0%, #0a1628 50%, #0f2040 100%)'
+  hero: ''
+  crest: ''
+componentStyles:
+  card:
+    clipPath: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%,
+      0 100%, 0 10px)
+    background: linear-gradient(180deg, rgba(10, 20, 40, 0.9) 0%, rgba(5, 9, 21, 0.92)
+      100%)
+    boxShadow: inset 0 0 0 1px rgba(63, 211, 255, 0.25), 0 0 20px -8px rgba(63, 211,
+      255, 0.3)
+    border: 1px solid rgba(63, 211, 255, 0.15)
+  header:
+    background: linear-gradient(180deg, rgba(15, 30, 60, 0.95) 0%, rgba(5, 9, 21,
+      0.9) 100%)
+    borderBottom: 1px solid rgba(63, 211, 255, 0.2)
+  sidebar:
+    background: linear-gradient(180deg, rgba(8, 16, 36, 0.9) 0%, rgba(5, 9, 21, 0.85)
+      100%)
+  tab:
+    clipPath: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%)
+  badge:
+    borderRadius: 0px
+    textTransform: uppercase
+    letterSpacing: 0.08em
+    fontSize: 0.65rem
+    fontWeight: 700
+  backdrop:
+    backgroundSize: cover
+    backgroundPosition: center
+    fillerOpacity: 1
+    fillerBlendMode: normal
+colorOverrides:
+  primary: '#3fd3ff'
+  primaryForeground: '#050915'
+  accent: '#ffce3a'
+  accentForeground: '#050915'
+  ring: '#3fd3ff'
+  success: '#4ade80'
+  warning: '#ffce3a'
+  destructive: '#ff3a5e'
+  border: rgba(63, 211, 255, 0.25)
+  card: rgba(10, 20, 40, 0.8)
+  cardForeground: '#e0f0ff'
+  muted: rgba(15, 30, 60, 0.6)
+  mutedForeground: '#6b8ca4'
+customCSS: "\n/* Subtle grid background */\n:root[data-layout-variant=\"cockpit\"\
+  ] body::before {\n  content: \"\";\n  position: fixed;\n  inset: 0;\n  pointer-events:\
+  \ none;\n  z-index: -1;\n  background-image: \n    linear-gradient(rgba(63, 211,\
+  \ 255, 0.03) 1px, transparent 1px),\n    linear-gradient(90deg, rgba(63, 211, 255,\
+  \ 0.03) 1px, transparent 1px);\n  background-size: 40px 40px;\n  mix-blend-mode:\
+  \ screen;\n}\n\n/* Scanline overlay */\n:root[data-layout-variant=\"cockpit\"] body::after\
+  \ {\n  content: \"\";\n  position: fixed;\n  inset: 0;\n  pointer-events: none;\n\
+  \  z-index: 9999;\n  background: repeating-linear-gradient(\n    to bottom,\n  \
+  \  transparent 0px,\n    transparent 2px,\n    rgba(63, 211, 255, 0.02) 3px,\n \
+  \   rgba(63, 211, 255, 0.02) 4px\n  );\n  mix-blend-mode: overlay;\n  opacity: 0.5;\n\
+  }\n\n/* Corner brackets on cards */\n:root[data-layout-variant=\"cockpit\"] [data-slot=\"\
+  card\"] {\n  position: relative;\n}\n:root[data-layout-variant=\"cockpit\"] [data-slot=\"\
+  card\"]::before,\n:root[data-layout-variant=\"cockpit\"] [data-slot=\"card\"]::after\
+  \ {\n  content: \"\";\n  position: absolute;\n  width: 12px;\n  height: 12px;\n\
+  \  border: 1px solid rgba(63, 211, 255, 0.4);\n  pointer-events: none;\n  transition:\
+  \ all 0.2s ease;\n}\n:root[data-layout-variant=\"cockpit\"] [data-slot=\"card\"\
+  ]::before {\n  top: -1px;\n  left: -1px;\n  border-right: none;\n  border-bottom:\
+  \ none;\n}\n:root[data-layout-variant=\"cockpit\"] [data-slot=\"card\"]::after {\n\
+  \  bottom: -1px;\n  right: -1px;\n  border-left: none;\n  border-top: none;\n}\n\
+  \n/* Glowing text for headers */\n:root[data-layout-variant=\"cockpit\"] h1,\n:root[data-layout-variant=\"\
+  cockpit\"] h2,\n:root[data-layout-variant=\"cockpit\"] h3 {\n  text-shadow: 0 0\
+  \ 10px rgba(63, 211, 255, 0.5);\n}\n\n/* Button glow on hover */\n:root[data-layout-variant=\"\
+  cockpit\"] button:hover {\n  box-shadow: 0 0 12px rgba(63, 211, 255, 0.4);\n}\n\n\
+  /* Animated pulse for live indicators */\n@keyframes pulse-glow {\n  0%, 100% {\
+  \ opacity: 0.6; }\n  50% { opacity: 1; }\n}\n:root[data-layout-variant=\"cockpit\"\
+  ] .live-indicator {\n  animation: pulse-glow 2s ease-in-out infinite;\n}\n"
