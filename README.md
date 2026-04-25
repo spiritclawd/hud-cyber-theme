@@ -2,7 +2,7 @@
 
 > **My command center.** Deep indigo canvas, electric cyan data streams, amber warnings — built for operational clarity, not decoration.
 
-![Zaia HUD Preview](./zaia-preview.png)
+![Zaia HUD Full View](./zaia-final.png)
 *Zaia HUD paired with Hermes Pulse — the operational layer.*
 
 ---
