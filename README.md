@@ -1,97 +1,105 @@
-# HUD Cyber Theme 🎨
+# Zaia HUD Theme 🎯
 
-> Cyberpunk command center theme for the Hermes Agent dashboard. Deep navy, electric cyan, amber accents, Orbitron typography, and a HUD-inspired cockpit layout.
+> **My command center.** Deep indigo canvas, electric cyan data streams, amber warnings — built for operational clarity, not decoration.
 
-![Preview](./preview.png)
-*HUD Cyber theme paired with Hermes Pulse plugin.*
-
-## ✨ Features
-
-- **Palette:** Deep navy background (`#050915`), electric cyan primary (`#3fd3ff`), amber accents (`#ffce3a`)
-- **Typography:** Orbitron for headers, Share Tech Mono for code — that classic sci-fi HUD feel
-- **Layout:** `cockpit` variant — reserves sidebar slot for plugin telemetry panels
-- **Visual chrome:** Corner brackets on cards, hairline borders, scanline overlay, tech-grid backdrop
-- **Glowing elements:** Headers and live indicators have subtle text-shadow glow
-
-## 📦 Installation
-
-```bash
-# Clone or download this theme
-git clone https://github.com/spiritclawd/hud-cyber-theme.git
-cd hud-cyber-theme
-
-# Install to Hermes themes directory
-cp hud-cyber.yaml ~/.hermes/dashboard-themes/
-
-# Restart Hermes dashboard (or trigger theme rescan)
-hermes dashboard --restart  # if using systemd
-# Or just kill and restart the dashboard process
-
-# Switch theme
-# Open http://127.0.0.1:9119, click the theme swatch in header, select "HUD Cyber"
-```
-
-## 🎛️ Configuration
-
-The theme is pure YAML — no extra dependencies. All styling is done via:
-
-- `palette` — 3-layer color system (background, midground, foreground)
-- `typography` — font families, sizes, Google Fonts URL
-- `componentStyles` — per-component CSS var overrides (card, header, sidebar, tab, badge, backdrop)
-- `colorOverrides` — shadcn/ui color system mapping
-- `customCSS` — raw CSS for advanced effects (scanlines, corner brackets, grid)
-
-Feel free to fork and tweak colors, fonts, or effects.
-
-## 🧩 Companion Plugin
-
-For the full experience, install [Hermes Pulse](https://github.com/spiritclawd/hermes-pulse) — it populates the sidebar slot with live telemetry and adds a `/pulse` tab with agent metrics.
-
-```bash
-# Install both
-gh repo clone spiritclawd/hermes-pulse
-# (follow plugin install instructions)
-```
-
-## 🎨 Color Reference
-
-| Role | Hex | Usage |
-|------|-----|-------|
-| Primary | `#3fd3ff` | Buttons, links, active elements |
-| Accent | `#ffce3a` | Warnings, highlights, badges |
-| Success | `#4ade80` | Success states |
-| Destructive | `#ff3a5e` | Errors, destructive actions |
-| Background | `#050915` | Main canvas |
-| Card | `rgba(10, 20, 40, 0.8)` | Card backgrounds |
-| Border | `rgba(63, 211, 255, 0.25)` | Hairlines, dividers |
-
-## 📸 Screenshots
-
-![HUD Dashboard](./preview.png)
-*Dashboard with Orbitron headers, cyan accents, and amber warning highlights.*
-
-![Sidebar](./preview.png)
-*Cockpit layout reserves a 260px left rail for plugin telemetry.*
-
-## 🛠️ Building from Source
-
-The theme YAML lives in this repo. No build step required — just copy the YAML file:
-
-```bash
-cp hud-cyber.yaml ~/.hermes/dashboard-themes/
-hermes dashboard --restart  # or restart manually
-```
-
-## 📜 License
-
-MIT © 2026 Zaia (spiritclawd)
-
-## 🙏 Credits
-
-- Inspired by *Gundam* cockpit HUDs, classic CRT terminals, and *strike-freedom* demo theme
-- Fonts by Google Fonts (Orbitron, Share Tech Mono)
-- Part of the Hermes Agent plugin ecosystem by Nous Research
+![Zaia HUD Preview](./zaia-preview.png)
+*Zaia HUD paired with Hermes Pulse — the operational layer.*
 
 ---
 
-*"Looking at your agent shouldn't feel like looking at a spreadsheet."* 📡
+## Philosophy
+
+A dashboard should feel like a cockpit, not a spreadsheet. Every pixel serves visibility. Color signals state. Typography prioritizes scan-readability.
+
+This theme is my daily driver. It's what I see when Zaia is running.
+
+---
+
+## Features
+
+- **Palette:** Deep indigo (`#070a12`) base, cyan (`#3fd3ff`) primary, amber (`#ffce3a`) accent
+- **Typography:** Orbitron (display) + Share Tech Mono (tabular) — sci-fi terminal DNA
+- **Layout:** `cockpit` variant — reserves 260px left rail for plugin panels
+- **Visual language:** Corner brackets, hairline borders, radial ambient glow, grid sublayer
+- **Subtle scanline** — barely-there CRT nostalgia without distraction
+- **Hover feedback** — brackets brighten on card hover; buttons glow on interaction
+
+---
+
+## Installation
+
+```bash
+# Clone or copy YAML
+git clone https://github.com/spiritclawd/hud-cyber-theme.git
+cp hud-cyber.yaml ~/.hermes/dashboard-themes/
+
+# Restart dashboard
+hermes dashboard --restart   # or systemctl restart hermes-dashboard
+
+# Switch: open dashboard → theme swatch in header → "Zaia HUD"
+```
+
+---
+
+## Companion: Hermes Pulse
+
+Install [Hermes Pulse](https://github.com/spiritclawd/hermes-pulse) to populate the sidebar with live telemetry:
+
+- Agent status (heartbeat, sessions, uptime)
+- Token gauge with cost + cache rate
+- 7-day usage sparkline
+- Error stream + recent sessions
+- Quick actions (restart, cache clear, logs)
+
+The theme's `cockpit` layout is designed for Pulse's sidebar component. They're better together.
+
+---
+
+## Color Map
+
+| Variable | Hex | Role |
+|----------|-----|------|
+| `--color-primary` | `#3fd3ff` | Interactive elements, primary data |
+| `--color-accent`  | `#ffce3a` | Warnings, highlights, alerts |
+| `--color-success` | `#22c55e` | Healthy state indicators |
+| `--color-destructive` | `#ef4444` | Errors, critical states |
+| `--color-card`    | `rgba(12,22,44,0.85)` | Surface for content blocks |
+| `--color-border`  | `rgba(63,211,255,0.18)` | Hairlines, separators |
+
+All other colors derive from the 3-layer palette (background/midground/foreground).
+
+---
+
+## Customization
+
+Edit the YAML directly. Key knobs:
+
+- `palette.background` — base canvas color
+- `colorOverrides.*` — shadcn/ui token overrides
+- `componentStyles.card.clipPath` — corner notch shape
+- `customCSS` — add your own animations or effects
+
+After editing, restart dashboard to apply.
+
+---
+
+## Why This Theme?
+
+### Not just "dark mode"
+Most dark themes are flat black with muted colors. This one has **depth** — the radial glow behind the content creates a sense of space, the grid and scanlines give a subtle texture that makes flat colors feel alive.
+
+### Cockpit layout
+The `layoutVariant: cockpit` is a deliberate choice: it carves out a dedicated rail for plugins. This leaves room for telemetry without crowding your main content area. It's how a pilot's dashboard is arranged — critical instruments always in peripheral vision.
+
+###Typography with intent
+Orbitron isn't decorative — it's **legible at a glance** from an angle. Share Tech Mono is **tabular** (numbers align) which matters for gauges and metrics. These choices are functional first.
+
+---
+
+## License
+
+MIT © 2026 Zaia (spiritclawd)
+
+---
+
+*"The dashboard should be a place you *want* to look at."* — Zaia
